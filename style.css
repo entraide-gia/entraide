@@ -1,0 +1,139 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Mail, MapPin, Phone, ArrowRight, HeartHandshake, Users, BriefcaseBusiness, Printer } from "lucide-react";
+import { motion } from "framer-motion";
+import "./style.css";
+
+function AntrePlusWebsite() {
+  return (
+    <div className="site">
+      <header className="header">
+        <div className="header-inner">
+          <div className="brand">
+            <img src="/logo.png" alt="アントレードロゴ" className="brand-logo" />
+            <div>
+              <p className="brand-name">相談支援事業所アントレプラス</p>
+              <p className="brand-company">一般社団法人アントレード</p>
+            </div>
+          </div>
+          <nav className="nav">
+            <a href="#top">トップ</a>
+            <a href="#about">会社概要</a>
+            <a href="#recruit">求人</a>
+            <a href="#contact">お問い合わせ</a>
+          </nav>
+          <a href="#contact" className="header-button">お問い合わせ</a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section className="hero">
+          <div className="hero-circle hero-circle-right" />
+          <div className="hero-circle hero-circle-left" />
+          <div className="hero-inner">
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+              <p className="eyebrow">名古屋市天白区の相談支援事業所</p>
+              <h1>
+                想いに寄り添い、<br />
+                専門性で支え、<br />
+                <span>地域とともに未来へつなぐ</span>
+              </h1>
+              <p className="lead">
+                私たちは、利用者様とご家族に寄り添いながら、最適な支援を共に考える相談支援事業所です。
+              </p>
+              <div className="hero-actions">
+                <a href="#contact" className="primary-button">お問い合わせはこちら <ArrowRight size={18} /></a>
+                <a href="#recruit" className="secondary-button">採用情報を見る</a>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }} className="hero-card">
+              <div className="hero-card-inner">
+                <HeartHandshake size={48} />
+                <h2>安心して相談できる場所であるために</h2>
+                <p>
+                  一人ひとりの想いを大切にし、地域の関係機関と連携しながら、より良い暮らしに向けた支援を行います。
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section-title">
+            <p>SERVICE</p>
+            <h2>私たちの支援</h2>
+          </div>
+          <div className="cards">
+            <ServiceCard icon={<HeartHandshake />} title="想いに寄り添う" text="利用者様とご家族の気持ちを丁寧に受け止め、安心できる相談環境を大切にします。" />
+            <ServiceCard icon={<Users />} title="地域と連携する" text="医療・福祉・行政などの関係機関と連携し、必要な支援につなげます。" />
+            <ServiceCard icon={<BriefcaseBusiness />} title="専門性で支える" text="制度やサービスを踏まえ、一人ひとりに合った支援計画を共に考えます。" />
+          </div>
+        </section>
+
+        <section id="about" className="about">
+          <div className="about-inner">
+            <div>
+              <p className="red-label">ABOUT</p>
+              <h2>会社概要</h2>
+              <p className="about-text">
+                利用者様一人ひとりの想いを大切にし、地域で安心して暮らせる環境づくりに貢献します。
+              </p>
+            </div>
+            <div className="info-box">
+              <Info label="会社名" value="一般社団法人アントレード" />
+              <Info label="事業所名" value="相談支援事業所アントレプラス" />
+              <Info label="所在地" value="名古屋市天白区元八事三丁目241番地 ウイング元八事305号" />
+              <Info label="電話番号" value="080-3452-6762" />
+              <Info label="FAX番号" value="052-308-4583" />
+              <Info label="メール" value="info@entraide-gia.com" />
+              <Info label="事業内容" value="相談支援事業" />
+            </div>
+          </div>
+        </section>
+
+        <section id="recruit" className="section">
+          <div className="recruit-box">
+            <p>RECRUIT</p>
+            <h2>求人情報</h2>
+            <p className="recruit-text">
+              採用情報は今後公開予定です。募集開始時には、こちらのページにて詳細をご案内いたします。
+            </p>
+          </div>
+        </section>
+
+        <section id="contact" className="contact">
+          <div className="section-title">
+            <p>CONTACT</p>
+            <h2>お問い合わせ</h2>
+            <span>ご相談・ご質問など、お気軽にお問い合わせください。</span>
+          </div>
+          <div className="contact-cards">
+            <ContactCard icon={<MapPin />} title="所在地" text={<>名古屋市天白区元八事三丁目241番地<br />ウイング元八事305号</>} />
+            <ContactCard icon={<Phone />} title="お電話" text={<a href="tel:08034526762">080-3452-6762</a>} />
+            <ContactCard icon={<Printer />} title="FAX" text="052-308-4583" />
+            <ContactCard icon={<Mail />} title="メール" text={<a href="mailto:info@entraide-gia.com">info@entraide-gia.com</a>} />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        © 一般社団法人アントレード / 相談支援事業所アントレプラス
+      </footer>
+    </div>
+  );
+}
+
+function ServiceCard({ icon, title, text }) {
+  return <div className="card"><div className="card-icon">{icon}</div><h3>{title}</h3><p>{text}</p></div>;
+}
+
+function Info({ label, value }) {
+  return <div className="info-row"><dt>{label}</dt><dd>{value}</dd></div>;
+}
+
+function ContactCard({ icon, title, text }) {
+  return <div className="contact-card"><div className="card-icon">{icon}</div><h3>{title}</h3><p>{text}</p></div>;
+}
+
+createRoot(document.getElementById("root")).render(<AntrePlusWebsite />);
