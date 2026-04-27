@@ -1,0 +1,17 @@
+# 相談支援事業所アントレプラス Webサイト
+
+## ローカル確認
+```bash
+npm install
+npm run dev
+```
+
+## Vercel公開
+1. このフォルダをGitHubにアップロード
+2. Vercelで「Add New Project」
+3. GitHubリポジトリを選択
+4. Framework Preset は Vite
+5. Deploy を押す
+
+## ロゴ差し替え
+`public/logo.png` を差し替えると反映されます。
